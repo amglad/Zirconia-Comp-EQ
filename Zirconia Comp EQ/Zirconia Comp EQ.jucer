@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="j5kJ0m" name="Zirconia Comp EQ" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="VpC85q" name="Zirconia Comp EQ">
+    <GROUP id="{40804B4F-D8C2-9A41-F253-D4A242F96E19}" name="Source">
+      <GROUP id="{F3C90181-8E1F-B814-B6F7-0AD69A3AC3F1}" name="BinaryData">
+        <FILE id="rpAwKz" name="compKnob.png" compile="0" resource="1" file="Source/BinaryData/compKnob.png"/>
+        <FILE id="z9NOrv" name="eq.png" compile="0" resource="1" file="Source/BinaryData/eq.png"/>
+        <FILE id="LsrWPJ" name="footswitch.png" compile="0" resource="1" file="Source/BinaryData/footswitch.png"/>
+        <FILE id="vfnmw5" name="fullLogo.png" compile="0" resource="1" file="Source/BinaryData/fullLogo.png"/>
+        <FILE id="k3Rjub" name="knobLeft.png" compile="0" resource="1" file="Source/BinaryData/knobLeft.png"/>
+        <FILE id="jpQta2" name="knobRight.png" compile="0" resource="1" file="Source/BinaryData/knobRight.png"/>
+        <FILE id="mcxgVB" name="light.png" compile="0" resource="1" file="Source/BinaryData/light.png"/>
+        <FILE id="wWadma" name="logo.png" compile="0" resource="1" file="Source/BinaryData/logo.png"/>
+        <FILE id="NpTfJd" name="off.png" compile="0" resource="1" file="Source/BinaryData/off.png"/>
+        <FILE id="stpXWU" name="on.png" compile="0" resource="1" file="Source/BinaryData/on.png"/>
+        <FILE id="zKKFbX" name="switchLight.png" compile="0" resource="1" file="Source/BinaryData/switchLight.png"/>
+        <FILE id="rxViMd" name="volume.png" compile="0" resource="1" file="Source/BinaryData/volume.png"/>
+      </GROUP>
+      <FILE id="KOEGF1" name="CompEQ.cpp" compile="1" resource="0" file="Source/CompEQ.cpp"/>
+      <FILE id="iXPbcR" name="CompEQ.h" compile="0" resource="0" file="Source/CompEQ.h"/>
+      <GROUP id="{79E3E7A9-85F2-FEDC-AE9E-410D2F1FDA4B}" name="Components">
+        <FILE id="po6WRW" name="leftKnob.cpp" compile="1" resource="0" file="Source/Components/leftKnob.cpp"/>
+        <FILE id="yPwGsu" name="leftKnob.h" compile="0" resource="0" file="Source/Components/leftKnob.h"/>
+        <FILE id="CtYmBI" name="MiddleKnob.cpp" compile="1" resource="0" file="Source/Components/MiddleKnob.cpp"/>
+        <FILE id="GhIt4K" name="MiddleKnob.h" compile="0" resource="0" file="Source/Components/MiddleKnob.h"/>
+        <FILE id="fyYpxn" name="rightKnob.cpp" compile="1" resource="0" file="Source/Components/rightKnob.cpp"/>
+        <FILE id="seVtwZ" name="rightKnob.h" compile="0" resource="0" file="Source/Components/rightKnob.h"/>
+      </GROUP>
+      <FILE id="QXtQGV" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="pu8bVK" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="tJTgbr" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="l6r7LU" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Zirconia Comp EQ"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Zirconia Comp EQ"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../Applications/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
