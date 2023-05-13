@@ -21,12 +21,8 @@ public:
     void prepareToPlay(float sampleRate, float samplesPerBlock);
     
 //    void setKnob (float pot);
-//
 //    void setPivotFreq (float pivotFreq);
-//
 //    void setGain (float gain_Lin);
-    
- 
     
 private:
     

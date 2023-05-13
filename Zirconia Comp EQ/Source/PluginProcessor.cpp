@@ -152,11 +152,7 @@ void ZirconiaCompEQAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
         int numSamples = buffer.getNumSamples();
 
         float gain_Lin = std::pow(10.0,gain_dB/20.0);
-        
-//        eq.setPivotFreq(pivotFreq);
-//        eq.setKnob(pot);
-//        eq.setGain(gain_Lin);
-
+    
         for (int channel = 0; channel < totalNumOutputChannels; channel++)
         {
             eq.processInPlace(buffer.getWritePointer(channel), pot, pivotFreq, gain_Lin, numSamples, channel);
