@@ -33,8 +33,8 @@ ZirconiaCompEQAudioProcessorEditor::ZirconiaCompEQAudioProcessorEditor (Zirconia
     EQknob.addListener(this);
     EQknob.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     EQknob.setBounds(140, 20, 120, 120);
-    EQknob.setRange(0.0,1.0,0.01);
-    EQknob.setValue(0.5);
+    EQknob.setRange(0.0f,1.0f,0.001f);
+    EQknob.setValue(0.5f);
     EQknob.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
     EQknob.setLookAndFeel(&middleKnob);
     addAndMakeVisible(EQknob);
@@ -63,8 +63,6 @@ ZirconiaCompEQAudioProcessorEditor::~ZirconiaCompEQAudioProcessorEditor()
 //==============================================================================
 void ZirconiaCompEQAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    // g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
     g.fillAll(juce::Colour(255, 208, 65));
 
     footswitch = juce::ImageCache::getFromMemory(BinaryData::switchLight_png, BinaryData::switchLight_pngSize);

@@ -16,9 +16,15 @@ public:
     
     void processBlock(juce::AudioBuffer<float> &buffer, float pot, float pivotFreq);
     
-    void processInPlace(float *buffer, float pot, float pivotFreq, float gain_Lin, const int numSamples, const int channel);
+    void processInPlace(float *buffer, float gain_Lin, const int numSamples, const int channel);
     
-    void prepareToPlay(float sampleRate, float samplesPerBlock);
+    float processSample(float x);
+    
+    void resetStates();
+    
+    void updateComponents(float pot, float pivotFreq);
+    
+    void prepareToPlay(double sampleRate, int samplesPerBlock);
     
 //    void setKnob (float pot);
 //    void setPivotFreq (float pivotFreq);
@@ -26,11 +32,28 @@ public:
     
 private:
     
-    float Fs;
+    double Fs;
+    double Ts;
     int bufferSize;
     
-    float R3 = 47000.f;
-    float R4 = 47000.f;
-    float R5 = 15000.f;
-    float R6 = 15000.f;
+    double R3 = 47000.0;
+    double R4 = 47000.0;
+    double R5 = 15000.0;
+    double R6 = 15000.0;
+    
+    double b0;
+    double b1;
+    double b2;
+    
+    double R1;
+    double R2;
+    
+    double Gw;
+    double Gx;
+    double Gy;
+    double Gz;
+    
+    double x1 = 0.0;
+    double x2 = 0.0;
+
 };

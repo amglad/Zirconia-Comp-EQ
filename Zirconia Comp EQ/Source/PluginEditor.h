@@ -57,6 +57,5 @@ private:
     juce::Image offText;
     juce::Image light;
 
-    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ZirconiaCompEQAudioProcessorEditor)
 };

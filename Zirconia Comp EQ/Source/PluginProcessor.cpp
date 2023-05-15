@@ -93,9 +93,6 @@ void ZirconiaCompEQAudioProcessor::changeProgramName (int index, const juce::Str
 //==============================================================================
 void ZirconiaCompEQAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
-    
     eq.prepareToPlay(sampleRate, samplesPerBlock);
 }
 
@@ -137,12 +134,6 @@ void ZirconiaCompEQAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
     
@@ -151,12 +142,27 @@ void ZirconiaCompEQAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
     else{
         int numSamples = buffer.getNumSamples();
 
-        float gain_Lin = std::pow(10.0,gain_dB/20.0);
-    
-        for (int channel = 0; channel < totalNumOutputChannels; channel++)
+        gain_Lin = std::pow(10.0,gain_dB/20.0);
+        
+        // update components if the knobs change
+        if (pot != potStore || pivotFreq != pivotStore)
         {
-            eq.processInPlace(buffer.getWritePointer(channel), pot, pivotFreq, gain_Lin, numSamples, channel);
+            eq.updateComponents(pot, pivotFreq);
         }
+        
+        for (int c = 0; c < totalNumOutputChannels; ++c)
+        {
+            for (int n = 0; n < numSamples; ++n)
+            {
+                float x = buffer.getWritePointer(c)[n];
+                float y = eq.processSample(x);
+
+                buffer.getWritePointer(c)[n] = y * gain_Lin;
+            }
+            eq.resetStates();
+        }
+        potStore = pot;
+        pivotStore = pivotFreq;
     }
 }
 
