@@ -122,25 +122,19 @@ void EQ::updateComponents(double pot, double pivotFreq)
     b2 = Gx2 / Gout;
 }
 
-void EQ::resetStates()
-{
-    x1 = 0.0;
-    x2 = 0.0;
-}
-
-float EQ::processSample(float x)
+float EQ::processSample(float x, int c)
 {
     float Vin = x;
-    float Vout = b0 * Vin + b1 * x1 + b2 * x2;
+    float Vout = b0 * Vin + b1 * x1[c] + b2 * x2[c];
 
     // calculate voltages
-    double Vy = Vin / (R1 * Gy) - Vin / (R1 * R1 * Gy * Gw) + Vout / (R4 * Gy) + x1 / (R1 * Gy * Gw) - x1 / Gy;
-    double Vw = Vin / (R1 * Gw) + Vy / (R6 * Gw) - x1 / Gw;
-    double Vz = Vin / (R3 * R5 * Gx * Gz) + Vout / (R2 * Gz) + x2 / Gz;
+    double Vy = Vin / (R1 * Gy) - Vin / (R1 * R1 * Gy * Gw) + Vout / (R4 * Gy) + x1[c] / (R1 * Gy * Gw) - x1[c] / Gy;
+    double Vw = Vin / (R1 * Gw) + Vy / (R6 * Gw) - x1[c] / Gw;
+    double Vz = Vin / (R3 * R5 * Gx * Gz) + Vout / (R2 * Gz) + x2[c] / Gz;
 
     // state updates
-    x1 = 2 / R1 * (Vin - Vw) - x1;
-    x2 = 2 / R2 * (Vz - Vout) - x2;
+    x1[c] = 2 / R1 * (Vin - Vw) - x1[c];
+    x2[c] = 2 / R2 * (Vz - Vout) - x2[c];
     
     // take our output
     return Vout;
@@ -151,4 +145,9 @@ void EQ::prepareToPlay(double sampleRate, int samplesPerBlock)
     Fs = sampleRate;
     bufferSize = samplesPerBlock;
     Ts = 1/Fs;
+    
+    x1[0] = 0.0;
+    x1[1] = 0.0;
+    x2[0] = 0.0;
+    x2[1] = 0.0;
 }

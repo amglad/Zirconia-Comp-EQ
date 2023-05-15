@@ -94,6 +94,7 @@ void ZirconiaCompEQAudioProcessor::changeProgramName (int index, const juce::Str
 void ZirconiaCompEQAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     eq.prepareToPlay(sampleRate, samplesPerBlock);
+    
 }
 
 void ZirconiaCompEQAudioProcessor::releaseResources()
@@ -155,11 +156,10 @@ void ZirconiaCompEQAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
             for (int n = 0; n < numSamples; ++n)
             {
                 float x = buffer.getWritePointer(c)[n];
-                float y = eq.processSample(x);
+                float y = eq.processSample(x, c);
 
                 buffer.getWritePointer(c)[n] = y * gain_Lin;
             }
-            eq.resetStates();
         }
         potStore = pot;
         pivotStore = pivotFreq;

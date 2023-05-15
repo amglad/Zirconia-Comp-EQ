@@ -18,9 +18,7 @@ public:
     
     void processInPlace(float *buffer, float gain_Lin, const int numSamples, const int channel);
     
-    float processSample(float x);
-    
-    void resetStates();
+    float processSample(float x, int c);
     
     void updateComponents(double pot, double pivotFreq);
     
@@ -53,7 +51,9 @@ private:
     double Gy;
     double Gz;
     
-    double x1 = 0.0;
-    double x2 = 0.0;
+    double x1[2];
+    double x2[2];
+    
+    
 
 };
