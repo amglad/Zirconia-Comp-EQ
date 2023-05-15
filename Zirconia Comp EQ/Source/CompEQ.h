@@ -14,19 +14,12 @@ class EQ
 {
 public:
     
-    void processBlock(juce::AudioBuffer<float> &buffer, float pot, float pivotFreq);
-    
-    void processInPlace(float *buffer, float gain_Lin, const int numSamples, const int channel);
-    
     float processSample(float x, int c);
     
     void updateComponents(double pot, double pivotFreq);
     
     void prepareToPlay(double sampleRate, int samplesPerBlock);
     
-//    void setKnob (float pot);
-//    void setPivotFreq (float pivotFreq);
-//    void setGain (float gain_Lin);
     
 private:
     

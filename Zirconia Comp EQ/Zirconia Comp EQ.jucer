@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="j5kJ0m" name="Zirconia Comp EQ" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyName="glad audio" pluginManufacturer="glad audio" pluginVST3Category="EQ">
   <MAINGROUP id="VpC85q" name="Zirconia Comp EQ">
     <GROUP id="{40804B4F-D8C2-9A41-F253-D4A242F96E19}" name="Source">
       <GROUP id="{F3C90181-8E1F-B814-B6F7-0AD69A3AC3F1}" name="BinaryData">
