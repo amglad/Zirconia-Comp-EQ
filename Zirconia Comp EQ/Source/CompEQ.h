@@ -22,7 +22,7 @@ public:
     
     void resetStates();
     
-    void updateComponents(float pot, float pivotFreq);
+    void updateComponents(double pot, double pivotFreq);
     
     void prepareToPlay(double sampleRate, int samplesPerBlock);
     

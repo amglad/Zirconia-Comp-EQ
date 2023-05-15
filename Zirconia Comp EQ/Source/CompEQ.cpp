@@ -92,7 +92,7 @@
 //}
 
 
-void EQ::updateComponents(float pot, float pivotFreq)
+void EQ::updateComponents(double pot, double pivotFreq)
 {
     double C1 = 0.000005 * pow(pivotFreq, -1);
     R1 = Ts / (2 * C1);
@@ -131,8 +131,7 @@ void EQ::resetStates()
 float EQ::processSample(float x)
 {
     float Vin = x;
-    double Vout = b0 * Vin + b1 * x1 + b2 * x2;
-    float VoutF = static_cast<float> (Vout);
+    float Vout = b0 * Vin + b1 * x1 + b2 * x2;
 
     // calculate voltages
     double Vy = Vin / (R1 * Gy) - Vin / (R1 * R1 * Gy * Gw) + Vout / (R4 * Gy) + x1 / (R1 * Gy * Gw) - x1 / Gy;
@@ -144,7 +143,7 @@ float EQ::processSample(float x)
     x2 = 2 / R2 * (Vz - Vout) - x2;
     
     // take our output
-    return VoutF;
+    return Vout;
 }
 
 void EQ::prepareToPlay(double sampleRate, int samplesPerBlock)

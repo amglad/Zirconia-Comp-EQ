@@ -57,13 +57,13 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     
-    float pivotFreq = 200.0f;
-    float pot = 0.5f;
+    double pivotFreq = 200.0;
+    double pot = 0.5;
     float gain_dB = 0.0f;
     float gain_Lin;
     
-    float potStore = 0.1f;
-    float pivotStore = 250.f;
+    double potStore = 0.1;
+    double pivotStore = 250.0;
     
     bool bypassOn = true;
 

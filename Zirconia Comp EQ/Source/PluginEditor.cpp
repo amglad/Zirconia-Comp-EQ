@@ -20,8 +20,8 @@ ZirconiaCompEQAudioProcessorEditor::ZirconiaCompEQAudioProcessorEditor (Zirconia
     pivotKnob.addListener(this);
     pivotKnob.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     pivotKnob.setBounds(10, 20, 120, 145);
-    pivotKnob.setRange(100,900,1);
-    pivotKnob.setValue(500);
+    pivotKnob.setRange(100.0,900.0,1.0);
+    pivotKnob.setValue(500.0);
     pivotKnob.setTextValueSuffix(" Hz");
     pivotKnob.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 60, 25);
     pivotKnob.setColour(juce::Slider::ColourIds::textBoxOutlineColourId, juce::Colour(255, 208, 65));
@@ -33,8 +33,8 @@ ZirconiaCompEQAudioProcessorEditor::ZirconiaCompEQAudioProcessorEditor (Zirconia
     EQknob.addListener(this);
     EQknob.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     EQknob.setBounds(140, 20, 120, 120);
-    EQknob.setRange(0.0f,1.0f,0.001f);
-    EQknob.setValue(0.5f);
+    EQknob.setRange(0.0,1.0,0.001);
+    EQknob.setValue(0.5);
     EQknob.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
     EQknob.setLookAndFeel(&middleKnob);
     addAndMakeVisible(EQknob);
@@ -42,7 +42,7 @@ ZirconiaCompEQAudioProcessorEditor::ZirconiaCompEQAudioProcessorEditor (Zirconia
     gainKnob.addListener(this);
     gainKnob.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     gainKnob.setBounds(270, 17, 120, 120);
-    gainKnob.setRange(-12.0,12.0,0.1);
+    gainKnob.setRange(-15.0,15.0,0.1);
     gainKnob.setValue(0.0);
     gainKnob.setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0);
     gainKnob.setLookAndFeel(&rightKnob);
